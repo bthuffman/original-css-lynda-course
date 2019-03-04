@@ -14,5 +14,5 @@ document.getElementById("visual").innerText = visualPercent.toString();
 document.getElementById("auditory").innerText = auditoryPercent.toString();
 
 let tactile = tactilePercent.toString();
-document.getElementById("tactile").innerHTML;
+document.getElementById("tactile").innerHTML = tactile;
 
