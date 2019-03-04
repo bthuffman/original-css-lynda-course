@@ -1,0 +1,358 @@
+body {
+    /*Links within the body tag will not be changed by these styles, instead they must be styled specifically. See the
+    anchor styles near the bottom of this page. */
+    color: orangered;
+    background: lightblue;
+}
+    /*font-size:*/
+    /*px, em and rem. Relative values calc. based on nearest ancestor element whereas absolute values not affected by ancestor elements.
+    px- absolute value and great for accuracy. Avoid decimals. Browser default size for para and lists= 16px.
+    em- named after the letter m, relative unit (nearest ancestor), 1 em=inheritied font size, if not font-size declared in parent element
+    then it will default to 16px.
+    rem- if no font-size 1rem=1em=defualt=16px. The difference between em is it is relative only to the root element.
+    Flexibility of em, but straight forward since refers to the html element.
+    */.
+    /*Width and height have no effect on inline elements (span, a, strong), only block level (h1, div, p. That is unless assign "display: block;"
+     in the css style sheet to those inline elements, which would then separate them onto their own lines assuming they were sharing lines to
+     begin with. Furthermore if you use "display: inline-block" it will make the inline elements line up next to each other as
+    inline elements usually do and will allow the width and height to affect it like block level elements. This inline-block can be applied
+    to block level elements as well. "display:none" will hide the content until it needs to be shown because of a user action (ex. drop
+      down menu)*/
+    /*Every html element is treated as a box by the browser. Therefore the spacing between them are default, Css can change that:
+    width and height: sets specific size for the content box
+     padding: space inside of the element: longhand form: padding-top, padding-right, etc. Shorthand: padding: 2px 2px 2px 2px (top, right,
+     bottom and left). Other shorthands: padding: 2px (all sides), padding: 2px 10px (top & bottom, left and right), padding: 2px 10px 5px (top,
+     right & left, bottom). [recall also you can use % instead of for more flexibility]
+     margin: space outside of the element. Follows same long-short hand as padding.
+     border-[width, style, color]: ads border between the margin and the padding. Shorthand: border: 2px solid red (width, style, color).
+     Specific targeting: border-top-style:*/
+    /*Unless you have a background style, margin and padding generally look the same in what they do.
+    When deciding to use margin or padding ask if trying to add space inside of an element to push the content away from
+    the edge of the container? Then use padding. If trying to push other elements away from each other use margin. The size
+    will affect it horizontally. If you want it to align better such that size doesn't overlap other content use the display: inline-block;*/
+    /*Natural page flow. By default block level elements take up the entire width of the page. Inline elements can occur multiple time on a line
+   . The parent content wraps the elements contained within it.*/
+
+    /*FLOATS & CLEAR
+    Can be used to float content around it and looks better using margins. If a certain part floats where you don't want
+    it you can target it in CSS and do clear: both; clears any left or right float.
+
+    Floats affect the stacking order and
+    the parent element. When this causes the child elements to flow into unwanted areas use overflow: auto OR hidden.
+    Overflow describes how to display content that is larger than it's container. Needed when height is smaller than the content.
+    Another option is to use .clearfix:after (clearfix hack). You'll want to add this class to the parent of floated elements.
+    css-tricks has advice on supporting older browsers. Caniuse.com lets you see what the browser support for flexible box is and
+    resources.
+    To prevent content from flowing around and THEN under an image, you will want to create a container to group the text content
+    around to the left or right.
+
+    BOX-SIZING: content-box; (defualt, padding and border increases the size)
+                border-box; (if using this it counts the padding and border in the total box size thus as they get bigger the content box [that which is surrounded by padding and border] gets smaller!)
+                Box Model Fix: padding and border will no longer affect the overall sizing of the element.
+                html {
+                    box-sizing: border-box;
+                }
+               *,  *:before, *after {the asterisks here insure that all html elements have this border style selected?
+                box-sizing: inherent;
+                }
+
+    FLOAT VS DISPLAY
+    Width and height of inline elements can't take affect until given the display property(display: inline-block;) is given to give the
+    properties of both inline and block elements. When you align inline and block elements a space will appear between them. When you
+    use float the display property will have no affect. The size of background will match the size of the content and thus may
+    disappear. Must specify the width of the background in order to prevent this. Text-align center doesn't work with float, but you
+    can adjust the width of
+
+    Hidden: the overflow: hidden; can be used to bring back a background that was otherwise disappeared when floating the elements.
+
+    FLOAT VS DISPLAY VS POSITION:
+    Float:
+        Vairable and flexxible content (images surrounded by text, side bars)
+    Display:
+        ALigning page compontents and elements that need to be centered. Doesn't change the stacking order or flow.
+    Position:
+        Positioning elements relative to other elements, aligning them outside of the document, or positioning elements to a specific
+        spot in doc. NOT FOR PAGE LAYOUTS!
+
+    NOTE: They cannot be used together, if they are the code will ignore the others based on the following heirarchy:
+            position> float> display
+    --------------------------------------------------*/
+    /*Images
+    Although you can adjust the size of images with CSS, they should be cropped to the size that you want prior to.
+    Larger images take longer to load, so crop it if your just going to make it smaller. Likewise a small picture that
+    you use and then blow up with CSS will become pixellated.
+    ....................................................*/
+
+    /*SPACING (#display) between inline or inline-block elements can be the result of using the enter key to separate items onto their
+    own lines such as list items in a navigation. You might otherwise think this was due to margin. Similar to having a space
+    between characters.
+
+    If put them all on the same line it would solve this but would cause other problems, so instead you should do something
+    else. You can use class display to adjust the width (positive) and margin value (would want negative values) to adjust, however
+    unintended results from resizing web browser.
+
+    BEST! The third option is to change the font size of the parent element to 0. You will have to then reset the font-size in the
+    child element to show the letters.
+        Ex.
+        <!-- Parent element-->
+        .display {
+            font-size: 0;
+        }
+        <!-- Child element, in this case a nav bar-->
+        .display a {
+            font-size: 16px
+        }
+
+    Fourth option could be to float the element, but then would want to clear the float (Overflow: hidden;)
+    ....................................................*/
+    /*NAV
+    To have clicking on href go to a spot within the page use # plus a word(s) for the href and then put that word(s) in
+    the content you want those links to jump to with the ID tag.
+    .....................................................*/
+    /*POSITION
+    Used to arrange elements relative to default page flow or browser viewport. In genral shouldn't be used to adjust page
+    layouts over the float and display properties because it takes the element out of the stacking order and flow (except for
+    the "relative" value. Otherwise it makes it difficult to work with different screen sizes. Good for small components,
+    such as the nav bar.
+    Five values:
+        Relative- can be positioned within a containing element or browser viewport. See ex. below.
+        Absolute- "",but also removes from natural page flow and can therefore go out of it's parent box unless you declare
+        a position in it's containing element (i.e. whatever it's parent element is)
+        Fixed- Keeps element in it's position on the screen (relative to veiwport). Therefore when you scroll it will stay
+        in place.
+        Static- default, elements not positioned.
+        Inherit- inherits value from ancestor element.
+        Stick- still not adopted everywhere, but can be useful.
+    Position is also used with combo of offset properties: top, right, bottom and left to specify the direction and placement
+    of the positioned elements.
+
+    Relative and Absolute Ex:
+    .relative {
+    position: relative;
+    top: 10px (pushes 10 px away from the top of it's current position)
+    }
+    .absolute {
+    position: absolute; (this would run over any fixed elements between the absolute and relative boxes)
+    }
+    By adding the position: realtive; to the parent element the absolute will not float around the page willy nilly.
+    .parent {
+    position: realtive;
+    }
+    .....................................................*/
+/*CLASSES
+Remember when using multiple classes in the HTML, just put a space between the "" Ex. class="btn download".
+............................*/
+/*By assigning background colors to elements you can explore the flow of them easier
+ .....................................*/
+/*Stacking
+Consider the natural stacking order (look up).
+z-index can assign a stacking order. Higher numbers stack on top of lower z-index numbers.
+Can be useful for drop down menus.
+.....................................*/
+/*DEVELOPER TOOLS/INSPECT ELEMENT
+Use developer tools on the browser to find CSS issues, see what content is being overriden by other content (select the element with the
+mouse option and shows the heirarcy of CSS code affecting it with those being made voided by higher items corssed out and
+those with errors having a yellow traingle with an exclamation), and see what changes to the pages would do without actually
+changing your code (so any changes you like you should then apply to your code.
+............................................*/
+/* CSS background can be short or long hand (search)
+..............................................*/
+/*BACKGROUND IMAGES
+Can add multiple ones by separating with a comma and put no repeat.
+
+background-size: cover; will have it expand to the entire elements size.
+
+If use image for background and have text viewing issues can add background color with certain transparency by adding an
+a to the "RGB"
+ex.
+selector {
+            background: rgba (#, #, #, #);
+}
+a=0 transparent, a=1 opaque
+This only works if have two containers, one to apply the background image to and one to apply the color to. Layer order of Z-indez applies.
+<div class="image.jpg">
+    <div class="alpha-bg">
+        <p>Content here</p>
+    </div>
+</div>
+In the above Image is the lowest, the alpha layers is nested in the stack and is higher, the content sits on top.
+................................................*/
+/*Media Queries
+Creating conditions for applying specific CSS styles (optimizing for various devices/ responsive design)
+Two Components:
+1) Media Types (devices)
+    Print, speech, screen and all (default)
+2) Media Features (like CSS properties in terms of syntax, but describe requirements of device)
+    See tympanus.net/codrop
+ ...............................................*/
+h1 {
+    /*Example of a type selector, use when most html elements are to be styled in the same way.*/
+    /*CSS rules cascade and are executed from top to bottom, so while the color specified in the body element
+    would at first be chosen, the color picked here for h1 will override that color since it comes after.*/
+    /*Likewise the CSS rule with greater specificity will take precedence over a less specific one.
+        Type selectors have the lowest precedent
+        Class selectors middle
+        Id selectors highest
+    For example,.classname style will take precedence over it's parent element's style (h1 for ex.).*/
+    color: orange;
+    /*font-weight: bold; Refers to thickness of typefaces, number values 100, 200... 900. Number values map to nearest
+      typeface available. Bold (default for headings)has default of 700, normal (default for body text) default of 400.
+      font-style: italic; italic (more cursive), oblique (just sloped version)and normal(removes italic or oblique).
+      line-height: height of the space between two lines of text. Can be px, em, rems, % or unitless [unitless 1.5 = 150%].
+      You should always have line value larger than the font size which is best achieved by using a percentage (relative
+      to font).
+      text-decorative: used to remove or ad underlines above (overline;), below (underline;), through (line-through;)
+      and remove (none;).
+      text-transform: specifies letter casing (capitalize (1st letter); UPPERCASE (all); lowercase; none;).
+      text-align: used to align text within the page. Can ad to element or parent element.
+      */
+
+}
+
+h2 {
+    color: red;
+
+}
+/* Example of class selector, use for specific styles that can be applied to different elements one or more times per page*/
+.demo {
+    color: yellow
+}
+/*Example of ID selector. Can only be used once per page so use for unique global styles that are not repeated. They can also be used for in page linking.*/
+#id {
+    color: lightyellow;
+}
+/*Example of class selector for multiple items. In this case it selects those whose class has style and name (ex. <div class="style name"></div>
+ */
+.style.name {
+
+}
+main section p {
+    /*Example of a descendant selector. This is about as deep as you want to go with these (3 levels), otherwise it could affect load time and maybe too specific to include much of anything since it must follow this specific pattern. */
+    color: black;
+}
+h3, h4 {
+    /*Example of combining selectors*/
+}
+a:hover {
+    color: green;
+    background: none;
+}
+a {
+    /*This would apply to all anchor tags*/
+}
+a:link {
+    /*This would apply only to anchor tags with a link (href) */
+    color: blue;
+}
+a:visited {
+    /*Indicates whether the link has been clicked on yet or not*/
+    color: lightblue;
+}
+a:active {
+    /*This is applied the moment you click the link*/
+    border: 1px solid black;
+}
+a:focus {
+    /*This pseudo class is used for people who use keyboard as supposed to mouses to navigate the web. You should always have this for accessibility. */
+    outline: 1px solid black;
+}
+/*PART TWO OF CSS TRAINING
+..........................................................................................................*/
+/*Descendent selectors apply to any nested element, not just parent child relationships.
+<div> ancestor
+    <div>parent
+        <div>child</div>
+        <div>descedent </div>
+    </div>
+</div>
+
+Child combinators
+section a {
+    will target all the links in that section.
+    }
+section < a {
+    will target only the child elements and not the descendants
+    }
+
+Sibling Combinators!
+Adjacent:
+h1 + p {
+    selects the 1st paragraph in the section(s)
+    }
+h1 + p  {
+    will match any sibling element following the selector
+    }
+When an h2 is add in the HTML separating the target element p and h1, then this code will not work since it is specific
+to the condition h1 then p.
+
+.one.two. {apply to any element with BOTH class names}
+p.one {only paragraphs  with a class of 'one'}
+p. one {this added space makes it a descendant selector}
+
+In the following example, the buttons will all share the same styles under the first CSS selector ".btn" and then the
+two following will also have their own background colors (again while still sharing the first selectors styles too):
+
+.btn {
+
+}
+.btn.submit {
+
+}
+.btn.cancel {
+
+}
+.............................................*/
+/*Pseudo-Class selectors
+Keyword, added to selector with the colon symbol used to specify a certain state. For example,
+a:hover {
+Used to apply styles when user mouses over
+}
+
+p:first-child (selects the first child of it's parent element)
+This selector specific to the paragraphg type doesn't work if their is a different type (such as h1) that is the 1st
+child of the parent element. To prevent such errors you'll use first-of-type:
+
+p:first-of-type
+
+:nth-child selector is used to select one or more child elements based on the order within the parent container.
+this is done by using keyword, number or even an algebraic formula.
+:nth-child (odd)
+:nth-child (4)
+:nth-child (2n+4)
+
+Odd and even select every other element. This is particularly useful for tables (changing colors for readability)
+The equation above (an+b) where a= any number, n=n and starts at a value of 0 and then increments by b (which is one)
+For usability you can use any equation it seems, however specifc to this one you can have a=number of elments you want
+to skip. b= would be the element you need to start with.
+...............................................*/
+/*Pseudo-Element Selectors
+Used to select certain parts of the element not part of the html or DOM.
+Syntax supported by all modern browsers (i.e. not Internet Explorer 8 or earlier):
+    PRE-CSS3 syntax
+        .element:first-letter {}
+    CSS3 syntax (latest language)
+        .element::first-letter {}
+
+:before and :after
+    Used in the box model fixed in the first lesson. Also used to generate elements that are inserted before or after
+    the selected element. Again note that psuedo-elements do not become a part of the HTML code, but rather affect the
+    way the page the corresponding elements are displayed.
+    For accessibility, used only for presentational effects.
+
+    Must always be used with the content property to generate the content to be inserted. Use a string value,
+    enclosed in quotes (single or double)
+
+    element:before {
+        content: "content to be inserted";
+        }
+     Strings can be any character (text, number, special character (symbol), unicode (to use you must put a fwd
+     slash / to differentiate it from a number string) or even left blank.
+
+        Unicode from uncode-table.com need not have the U+ included when adding it to your content properties. That
+        is left quotations which have the unicode U+201C, go in like this:
+
+        p:before {
+            content: "/201c";
+        }
+
+...............................................*/

@@ -1,0 +1,234 @@
+/*Alternatives to this external method of applying CSS to html is to../
+    INTERNAL CSS:
+        Included in the head, uses the <style></style> tag to enclose the CSS styles and must always be between them.
+        This is  ok for one page websites, but tedious for multiple pages as you'd have to update the style block on
+        each of them.
+    INLINE STYLES:
+        Included in HTML element as an attribute (ex. <p style="color:blue;".
+        Should be used sparingly.
+        Specificity issues can arise as inline styles take precedence over internal and external CSS.
+    NOTE: Best practices for programming in general is the more efficient, flexible and easy to maintain the codebase
+     is the better. */
+/* Color Palette
+#d741a7- Pink
+#3a1772- Dark bluish purple
+#5398be- Bland light blue
+#f2cd5d- Calm yellow
+#dea54b- Dark (kinda brownish) gold
+-------------------------*/
+/* Global styles
+-------------------------*/
+html    {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	margin: 0;
+	/*The code above from "html { box-siz"... to ..."margin: 0;" is the box model fix*/
+	/*font-size: 5px*/
+
+}
+body {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 400;
+	/*display: inline-block; the auto value makes it automatically find the center (left-right) of the page.*/
+	/*The margin setting here removes the white outline that forms around all of the content.*/
+	/*margin: 0;*/
+}
+a   {
+	color:#5398be;
+	display: inline-block;
+}
+a:focus {
+	outline: none;
+	border: 1px solid black;
+}
+a:hover {
+	text-decoration: none;
+}
+h1,
+h2 {
+	font-family: 'Playfair Display', serif;
+}
+h1 {
+	font-size: 53px;
+}
+h2 {
+	font-size: 40px;
+	/*Ref#3. Removes the pesky inconsistent size in spacing the footer suffers after apply Ref#2*/
+	margin-top: 0;
+}
+h3  {
+	/*margin: 0;*/
+}
+/*The immediately above end up not doing anything to displayed website*/
+p  {
+	font-size: 18px;
+}
+.content-wrap   {
+	/*Max width allows the content to move with the varying size of the browser window, whereas otherwise a a horizontal
+	bar would appear on the bottom of the screen to allow scrolling to see all of the content. It's important to make your
+	webpage flexible for all sizes. */
+	max-width: 950px;
+	margin: 0 auto;
+	/*Ref#1. This solves the issue mentioned in comment "Ref#2"*/
+	padding: 60px 50px;
+	/*Must be added to this element because this is where padding is for the elements targeted.*/
+	overflow: hidden;
+}
+h2,
+p {
+	/*Ref#2This eliminates that pesky white space between my sections, but then groups them too close together. To solve both
+	we will then use padding.See comment "Ref#1"*/
+	margin: 0;
+}
+.uppercase {
+	text-transform: uppercase;
+}
+.btn    {
+	text-decoration: none;
+	background: #5398be;
+	color: white;
+	padding: 10px;
+	display: inline-block;
+}
+.image-bg {
+	background: linear-gradient(rgba(0, 119, 191, 0.75),rgba(0, 119, 191, 0.5)),
+	url("../Images/robot_2560x1600.jpg") no-repeat;
+	background-size: cover;
+	/*Alternatively could have applied this to .education and then added fixed as a value to the background
+	property to get it to scroll with the whole page. May want to if text becomes too big!*/
+}
+/* Header and Footer
+-------------------------*/
+header,
+footer {
+	background:#3a1772;
+	color:#f2cd5d;
+}
+/*header*/
+header h1,
+header h2,
+header h3,
+header p {
+	margin: 0;
+	display: inline;
+}
+header {
+	padding-top: 50px;
+	position: relative;
+}
+.profile-img    {
+	/*Don't need to set the height, because it is automatically adjusted by the width to maintain it's aspect ratio*/
+	/*width: 300px;*/
+	/*This turns the image into a circular shape! If you have a rectangular image it will make it oval. If instead you
+	use px and a small amount it will round the square image proportional to the amount*/
+	border-radius: 50%;
+	/*float: left;*/
+	/*margin-right: 30px;*/
+	/*The following shape-outside property was supposed to have the text wrap around the circular image. Not sure why it is not, could be
+	something to do with the Z-score. */
+	/*shape-outside: circle();*/
+}
+.download {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+/*footer*/
+footer {
+	text-align: center;
+}
+.contact-info a {
+	/*background:white;*/
+	/*Alternatively, margin of the same size (instead of padding) would have decreased the size of the click-able portions
+	of the link (try it to see). This is less ideal because then those on a touch-pad could have a harder time clicking the content.*/
+	padding: 10px;
+	display: inline-block;
+}
+.about-me {
+	margin-top: 12px;
+}
+/* Navigation
+..........................*/
+nav {
+	text-align: center;
+	background: white;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	/*The bellow is an alternative to using width 100% to get the nav bar all the way across the page.*/
+	/*right: 0;
+	left: 0;
+	*/
+}
+
+nav a {
+	display: inline-block;
+	padding: 15px 20px;
+	/*none deletes the default underline for links.*/
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+/* Work Experience
+-------------------------*/
+.work {
+	/*background: #dea54b;*/
+	/*background: #5398be;*/
+}
+h3 ~ p {
+	/*margin: 0;*/
+}
+/*The immediately above ended up not doing anything to displayed website*/
+.job-description {
+	margin-bottom: 25px;
+}
+.job-description p:first-of-type {
+	/*margin-top: 0;*/
+}
+/*The immediately above ended up not doing anything to displayed website. In hers it helped to align the block elements
+the right of the left block elements.*/
+/* Education
+-------------------------*/
+.education {
+	/*background: #dea54b;*/
+}
+p + h3  {
+	margin-top: 30px;
+}
+/*The p + h3*. Apply this style to any h3 that follow a paragraph tag./
+/*Media Queries
+-----------------------------*/
+@media (min-width: 900px) {
+	.col-wide {
+		width: 70%;
+		float: left;
+		padding-left: 20px;
+		/*The min-height fixes that referenced to in REF#4 in the html. Fixing it properly requires (and required) playing
+		with the px size.*/
+		/*min-height: 100px;*/
+
+	}
+	.col-narrow  {
+		width: 30%;
+		float: left;
+		/*min-height: 100px;*/
+		/*Because applying the width above to the image we can remove the width, float, and margin styles (I put them in /**/
+		/*becuase both the wide and narrow columns are assigned to equal 100%, floating them doesn't really matter
+		 unless the components are smaller than the total width of the container. */
+	}
+	/*For screen sizes larger than 900px use two column style, for those smaller use one column. These styles were cut
+	 from corresponding global styles*/
+}
+@media (max-width: 899px) {
+	header {
+		text-align: center;
+	}
+	.profile-img {
+		width: 200px;
+	}
+	/*targets any screen 899px or smaller*/
+}
