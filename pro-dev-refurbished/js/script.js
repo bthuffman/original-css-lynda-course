@@ -13,6 +13,6 @@ console.log("Auditory: " + auditoryPercent + "<br/>" + "Visual: " + visualPercen
 document.getElementById("visual").innerText = visualPercent.toString();
 document.getElementById("auditory").innerText = auditoryPercent.toString();
 
-let tactile = tactilePercent.toString();
-document.getElementById("tactile").innerHTML = tactile;
+let tactileTwo = tactilePercent.toString();
+document.getElementById("tactile").innerHTML = tactileTwo;
 
