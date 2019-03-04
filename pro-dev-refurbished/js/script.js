@@ -1,6 +1,6 @@
-let auditory = 3;
-let visual = 5;
-let tactile = 4;
+let auditory = 4;
+let visual = 7;
+let tactile = 5;
 let total = auditory + visual + tactile;
 // document.write( "Denominator: " + total + "<br>");
 
