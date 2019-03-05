@@ -1,23 +1,5 @@
-/*Alternatives to this external method of applying CSS to html is to../
-    INTERNAL CSS:
-        Included in the head, uses the <style></style> tag to enclose the CSS styles and must always be between them.
-        This is  ok for one page websites, but tedious for multiple pages as you'd have to update the style block on
-        each of them.
-    INLINE STYLES:
-        Included in HTML element as an attribute (ex. <p style="color:blue;".
-        Should be used sparingly.
-        Specificity issues can arise as inline styles take precedence over internal and external CSS.
-    NOTE: Best practices for programming in general is the more efficient, flexible and easy to maintain the codebase
-     is the better. */
-/* Color Palette
-#d741a7- Pink
-#3a1772- Dark bluish purple
-#5398be- Bland light blue
-#f2cd5d- Calm yellow
-#dea54b- Dark (kinda brownish) gold
--------------------------*/
 /* Global styles
--------------------------*/
+***********************************************************************************************************************/
 html    {
 	box-sizing: border-box;
 }
@@ -102,13 +84,14 @@ p {
 	property to get it to scroll with the whole page. May want to if text becomes too big!*/
 }
 /* Header and Footer
--------------------------*/
+***********************************************************************************************************************/
 header,
 footer {
 	background:#3a1772;
 	color:#f2cd5d;
 }
-/*header*/
+/*header
+***********************************************************************************************************************/
 header h1,
 header h2,
 header h3,
@@ -137,7 +120,17 @@ header {
 	bottom: 0;
 	right: 0;
 }
-/*footer*/
+/*Experience in Tech image
+***********************************************************************************************************************/
+#experience-img {
+	border: 2px solid #000;
+	border-radius: 10px;
+	max-height: 50%;
+	max-width: 50%;
+}
+
+/*footer
+***********************************************************************************************************************/
 footer {
 	text-align: center;
 }
@@ -231,4 +224,16 @@ p + h3  {
 		width: 200px;
 	}
 	/*targets any screen 899px or smaller*/
+}
+
+table,
+th,
+tr,
+td {
+	border: 3px solid purple;
+	border-collapse: collapse;
+}
+
+.table-headings {
+	font: bold 1.2em Arial, Helvetica, sans-serif;
 }
