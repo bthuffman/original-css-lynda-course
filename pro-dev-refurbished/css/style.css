@@ -80,7 +80,7 @@ p {
 	background: linear-gradient(rgba(0, 119, 191, 0.75),rgba(0, 119, 191, 0.5)),
 	url("../Images/robot_2560x1600.jpg") no-repeat;
 	background-size: cover;
-	/*Alternatively could have applied this to .education and then added fixed as a value to the background
+	/*Alternatively could have applied this to accomplishments section and then added fixed as a value to the background
 	property to get it to scroll with the whole page. May want to if text becomes too big!*/
 }
 /* Header and Footer
@@ -122,7 +122,7 @@ header {
 }
 /*Experience in Tech image
 ***********************************************************************************************************************/
-#experience-img {
+.pro-dev-img {
 	border: 2px solid #000;
 	border-radius: 10px;
 	max-height: 50%;
@@ -166,12 +166,8 @@ nav a {
 	text-transform: uppercase;
 	font-weight: 700;
 }
-/* Work Experience
+/* Details
 -------------------------*/
-.work {
-	/*background: #dea54b;*/
-	/*background: #5398be;*/
-}
 h3 ~ p {
 	/*margin: 0;*/
 }
@@ -184,11 +180,8 @@ h3 ~ p {
 }
 /*The immediately above ended up not doing anything to displayed website. In hers it helped to align the block elements
 the right of the left block elements.*/
-/* Education
+/* accomplishments
 -------------------------*/
-.education {
-	/*background: #dea54b;*/
-}
 p + h3  {
 	margin-top: 30px;
 }
